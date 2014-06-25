@@ -58,6 +58,15 @@ enyo.kind({
             "ro.product.manufacturer",
             "ro.build.version.release"]});
     },
+    reflow: function(inSender) {
+        this.inherited(arguments);
+        if(enyo.Panels.isScreenNarrow()) {
+            this.$.Grabber.applyStyle("visibility", "hidden");
+        }
+        else {
+            this.$.Grabber.applyStyle("visibility", "visible");
+        }
+    },
     // Action Handlers
     onShowSoftwareLicenses: function(inSender, inEvent) {
         this.bubble("onSwitchPanel", {targetPanel: "Licenses"});
