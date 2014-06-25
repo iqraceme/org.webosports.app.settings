@@ -92,6 +92,15 @@ enyo.kind({
 		this.palm = true;
 		this.$.GetStatus.send({});
 	},
+	reflow: function(inSender) {
+		this.inherited(arguments);
+		if(enyo.Panels.isScreenNarrow()) {
+			this.$.Grabber.applyStyle("visibility", "hidden");
+		}
+		else {
+			this.$.Grabber.applyStyle("visibility", "visible");
+		}
+	},
 	/* Control handlers */
 	onDevModeChanged: function(inSender, inEvent) {
 		if (!this.palm) {
