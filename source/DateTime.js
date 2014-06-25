@@ -102,10 +102,10 @@ enyo.kind({
 	reflow: function(inSender) {
 		this.inherited(arguments);
 		if(enyo.Panels.isScreenNarrow()) {
-			// this.$.Grabber.applyStyle("visibility", "hidden");
+			this.$.Grabber.applyStyle("visibility", "hidden");
 		}
 		else {
-			//this.$.Grabber.applyStyle("visibility", "visible");
+			this.$.Grabber.applyStyle("visibility", "visible");
 		}
 	},
 	//Action Handlers
