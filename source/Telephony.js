@@ -46,6 +46,15 @@ enyo.kind({
 		var request = navigator.service.Request("luna://com.palm.wan/", {
 			method: 'getstatus', onSuccess: enyo.bind(this, "handleWanStatus")});
 	},
+	reflow: function(inSender) {
+		this.inherited(arguments);
+		if(enyo.Panels.isScreenNarrow()) {
+			this.$.Grabber.applyStyle("visibility", "hidden");
+		}
+		else {
+			this.$.Grabber.applyStyle("visibility", "visible");
+		}
+	},
 	/* service response handlers */
 	handleWanStatus: function(inResponse) {
 		console.log("WAN status changed: " + JSON.stringify(inResponse));
