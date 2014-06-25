@@ -99,7 +99,16 @@ enyo.kind({
 			onComplete: "initiateUpdateComplete"
 		}
 	],
-
+	//handler
+	reflow: function(inSender) {
+		this.inherited(arguments);
+		if(enyo.Panels.isScreenNarrow()) {
+			this.$.Grabber.applyStyle("visibility", "hidden");
+		}
+		else {
+			this.$.Grabber.applyStyle("visibility", "visible");
+		}
+	},
 	//button callbacks:
 	doCheck: function (inSender, inEvent) {
 		this.currentRequest = this.$.updateService.send({});
