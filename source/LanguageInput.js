@@ -58,6 +58,15 @@ enyo.kind({
 
         this.$.GetPreferences.send({keys:["keyboard"]});
     },
+    reflow: function(inSender) {
+        this.inherited(arguments);
+        if(enyo.Panels.isScreenNarrow()) {
+            this.$.Grabber.applyStyle("visibility", "hidden");
+        }
+        else {
+            this.$.Grabber.applyStyle("visibility", "visible");
+        }
+    },
     // Control Action Handlers
     onInputPreferenceChanged: function(inSender, inEvent) {
         enyo.log("Input preferences changed");
